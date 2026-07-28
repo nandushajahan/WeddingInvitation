@@ -1,3 +1,5 @@
+import { getAssetUrl } from "../utils/getAssetUrl";
+
 export const weddingData = {
   couple: {
     groom: "Nandu",
@@ -26,18 +28,21 @@ export const weddingData = {
     chapter1: {
       title: "Where It All Began",
       subtitle: "Chapter I • First Meeting",
-      quote: "Like a gentle golden sunrise, two paths met in silence and found a lifetime of warmth.",
+      quote:
+        "Like a gentle golden sunrise, two paths met in silence and found a lifetime of warmth.",
     },
     chapter2: {
       title: "Golden Moments Together",
       subtitle: "Chapter II • Shared Smiles",
-      quote: "Walking together through changing seasons, every quiet moment turned into a cherished memory.",
+      quote:
+        "Walking together through changing seasons, every quiet moment turned into a cherished memory.",
     },
     chapter3: {
       title: "The Eternal Promise",
       subtitle: "Chapter III • Forever & Always",
-      quote: "With rings engraved with our names, we step together into an everlasting union.",
-    }
+      quote:
+        "With rings engraved with our names, we step together into an everlasting union.",
+    },
   },
 
   ourStory: [
@@ -46,24 +51,27 @@ export const weddingData = {
       tag: "Chapter I",
       title: "First Encounter",
       period: "Winter 2022",
-      description: "An unexpected spark that grew into a deep, unbreakable bond of love.",
-      imageUrl: "/photos/WIL00162.JPG",
+      description:
+        "An unexpected spark that grew into a deep, unbreakable bond of love.",
+      imageUrl: getAssetUrl("images/WIL00162.JPG"),
     },
     {
       id: 2,
       tag: "Chapter II",
       title: "Golden Days",
       period: "Autumn 2024",
-      description: "Moments filled with laughter, warm conversations, and peaceful sunsets.",
-      imageUrl: "/photos/WIL00236.JPG",
+      description:
+        "Moments filled with laughter, warm conversations, and peaceful sunsets.",
+      imageUrl: getAssetUrl("images/WIL00236.JPG"),
     },
     {
       id: 3,
       tag: "Chapter III",
       title: "The Proposal",
       period: "Spring 2026",
-      description: "Under a sky full of stars, Nandu asked, and Sravya happily said YES.",
-      imageUrl: "/photos/WIL00310.JPG",
+      description:
+        "Under a sky full of stars, Nandu asked, and Sravya happily said YES.",
+      imageUrl: getAssetUrl("images/WIL00310.JPG"),
     },
     {
       id: 4,
@@ -71,11 +79,10 @@ export const weddingData = {
       title: "Forever Begins",
       period: "Winter 2026",
       description: "Ready to walk hand in hand as husband and wife.",
-      imageUrl: "/photos/WIL00411.JPG",
-    }
+      imageUrl: getAssetUrl("images/WIL00411.JPG"),
+    },
   ],
 
-  // Main Sacred Union Temple Venue
   venue: {
     name: "Mayannur Sree Kurumba Temple",
     hall: "Temple Premises",
@@ -84,7 +91,6 @@ export const weddingData = {
     googleMapsUrl: "https://maps.app.goo.gl/bBAuvWbiqeCWZaTeA",
   },
 
-  // Detailed 3-Part Events List
   eventsList: [
     {
       id: "thaalikettu",
@@ -96,7 +102,8 @@ export const weddingData = {
       location: "Mayannur, Thrissur, Kerala",
       googleMapsUrl: "https://maps.app.goo.gl/bBAuvWbiqeCWZaTeA",
       dressCode: "Traditional Kasavu Attire",
-      description: "The auspicious Thaali Kettu ceremony at Mayannur Sree Kurumba Temple.",
+      description:
+        "The auspicious Thaali Kettu ceremony at Mayannur Sree Kurumba Temple.",
     },
     {
       id: "weddingFeast",
@@ -108,20 +115,22 @@ export const weddingData = {
       location: "Chirankara, Mayannur, Thrissur, Kerala",
       googleMapsUrl: "https://maps.app.goo.gl/bBAuvWbiqeCWZaTeA",
       dressCode: "Traditional / Festive Indian",
-      description: "Traditional Sadhya & wedding celebration immediately following the temple ceremony.",
+      description:
+        "Traditional Sadhya and wedding celebration immediately following the temple ceremony.",
     },
     {
       id: "reception",
       title: "Grand Reception",
-      subTitle: "Evening Celebration & Feast",
+      subTitle: "Celebration & Feast",
       date: "Monday, 14th September 2026",
       time: "11:00 AM Onwards",
       venueName: "Ayyampilly Celebration Hall",
       location: "Ayyampilly, Vypin, Kochi, Kerala",
-      googleMapsUrl: "https://maps.app.goo.gl/beWB5npCLe2diyS97",
+      googleMapsUrl: "https://maps.google.com/?q=Ayyampilly+Kerala",
       dressCode: "Festive Formal",
-      description: "A joyful reception celebration with family and friends at Ayyampilly.",
-    }
+      description:
+        "A joyful reception celebration with family and friends at Ayyampilly.",
+    },
   ],
 
   gallery: [
@@ -129,34 +138,34 @@ export const weddingData = {
       id: "g1",
       title: "Nandu & Sravya",
       category: "Pre-Wedding",
-      url: "/photos/WIL00162.JPG",
+      url: getAssetUrl("images/WIL00162.JPG"),
     },
     {
       id: "g2",
       title: "Shared Smiles",
       category: "Moments",
-      url: "/photos/WIL00236.JPG",
+      url: getAssetUrl("images/WIL00236.JPG"),
     },
     {
       id: "g3",
       title: "Golden Sunset",
       category: "Romance",
-      url: "/photos/WIL00310.JPG",
+      url: getAssetUrl("images/WIL00310.JPG"),
     },
     {
       id: "g4",
       title: "Together Forever",
       category: "Celebration",
-      url: "/photos/WIL00411.JPG",
-    }
+      url: getAssetUrl("images/WIL00411.JPG"),
+    },
   ],
 
   rsvp: {
-    deadline: "November 15, 2026",
+    deadline: "September 5, 2026",
   },
 
   music: {
     trackTitle: "Howl's Moving Castle (OST Theme)",
-    src: "/music/bgm.mp3",
-  }
+    src: getAssetUrl("music/wedding-song.mp3"),
+  },
 };
