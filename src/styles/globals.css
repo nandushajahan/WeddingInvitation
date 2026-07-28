@@ -1,0 +1,210 @@
+@import './tokens.css';
+
+/* CSS Reset & Greener Shade Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-sage-base);
+  color: var(--text-dark-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-sage-base);
+  background-image: 
+    radial-gradient(ellipse at 50% 12%, rgba(132, 169, 140, 0.25) 0%, transparent 65%),
+    radial-gradient(circle at 50% 88%, rgba(214, 227, 218, 0.8) 0%, transparent 75%);
+  color: var(--text-dark-primary);
+  overflow-x: hidden;
+}
+
+/* Typography Classes */
+.font-hero {
+  font-family: var(--font-hero);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* REFLECTIVE GLOSS SHIMMER TEXT EFFECT FOR BIG HEADINGS */
+.gold-gradient-text, .reflective-text {
+  background: linear-gradient(
+    110deg,
+    #967015 0%,
+    #D4AF37 25%,
+    #FFFFFF 45%,
+    #FFF0C2 50%,
+    #F5D68B 55%,
+    #B38A20 80%,
+    #967015 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: reflectiveShimmer 4.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.25));
+}
+
+@keyframes reflectiveShimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* iOS 18 Liquid Glass Card Utility (Greener Sage Matched) */
+.glass-card-minimal {
+  background: rgba(243, 247, 244, 0.76);
+  -webkit-backdrop-filter: blur(32px) saturate(210%);
+  backdrop-filter: blur(32px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 28px;
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(132, 169, 140, 0.15),
+    0 20px 45px -10px rgba(13, 40, 24, 0.07);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.glass-card-minimal:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    0 25px 50px -10px rgba(13, 40, 24, 0.12),
+    0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* SMOOTH BLUR VIGNETTE PHOTO FLOATER CLASS */
+.photo-vignette-floater {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 28px;
+  overflow: hidden;
+  /* Smooth feathered radial blur vignette fading seamlessly into background */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0.85) 75%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0.85) 75%, rgba(0, 0, 0, 0) 100%);
+  filter: drop-shadow(0 15px 30px rgba(13, 40, 24, 0.12));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.photo-vignette-floater:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 20px 40px rgba(212, 175, 55, 0.25));
+}
+
+/* iOS 18 Liquid Pill Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.85rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.92) 0%, rgba(179, 138, 32, 0.98) 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+    0 10px 25px rgba(212, 175, 55, 0.35);
+  transition: all var(--transition-fast);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
+    0 15px 35px rgba(212, 175, 55, 0.5);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(243, 247, 244, 0.75);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  color: var(--text-dark-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(132, 169, 140, 0.45);
+  cursor: pointer;
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 20px rgba(13, 40, 24, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold-deep);
+  background: rgba(243, 247, 244, 0.95);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.2);
+}
+
+/* iOS 18 Input Elements */
+input, select, textarea {
+  color: var(--text-dark-primary) !important;
+  background: rgba(243, 247, 244, 0.85) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(132, 169, 140, 0.35) !important;
+  border-radius: 16px !important;
+  box-shadow: inset 0 1px 2px rgba(13, 40, 24, 0.03) !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold-base) !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

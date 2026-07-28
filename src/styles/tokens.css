@@ -1,0 +1,49 @@
+:root {
+  /* Color Palette - Greener Shade Botanical Sage & Emerald Theme */
+  --bg-sage-base: #F3F7F4;
+  --bg-sage-depth: #E5EDE7;
+  --bg-sage-surface: #FFFFFF;
+  --bg-sage-elevated: #D6E3DA;
+
+  --text-dark-primary: #0D2818;
+  --text-dark-secondary: #1F4B2E;
+  --text-muted: #52796F;
+
+  --gold-bright: #F5D68B;
+  --gold-base: #D4AF37;
+  --gold-deep: #B38A20;
+  --emerald-accent: #2A5C39;
+
+  --glow-gold-sunbeam: rgba(212, 175, 55, 0.25);
+  --overlay-glass-card: rgba(243, 247, 244, 0.78);
+  --overlay-gold-border: rgba(132, 169, 140, 0.35);
+
+  /* Typography */
+  --font-hero: 'Cinzel Decorative', 'Cormorant Garamond', serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+
+  /* Shadows & Glows */
+  --glow-gold-soft: 0 0 25px rgba(212, 175, 55, 0.25);
+  --shadow-card-light: 0 15px 35px rgba(13, 40, 24, 0.08), 0 5px 15px rgba(212, 175, 55, 0.12);
+
+  /* Borders & Radii */
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+
+  /* Motion & Easing */
+  --ease-out-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-fast: 0.25s var(--ease-out-cinematic);
+  --transition-normal: 0.5s var(--ease-out-cinematic);
+
+  /* Z-Index Hierarchy */
+  --z-background: 0;
+  --z-canvas: 10;
+  --z-content: 20;
+  --z-floating-ui: 30;
+  --z-modal: 40;
+}
