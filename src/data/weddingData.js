@@ -53,7 +53,7 @@ export const weddingData = {
       period: "Winter 2022",
       description:
         "An unexpected spark that grew into a deep, unbreakable bond of love.",
-      imageUrl: getAssetUrl("images/WIL00162.JPG"),
+      imageUrl: getAssetUrl("photos/WIL00162.JPG"),
     },
     {
       id: 2,
@@ -62,7 +62,7 @@ export const weddingData = {
       period: "Autumn 2024",
       description:
         "Moments filled with laughter, warm conversations, and peaceful sunsets.",
-      imageUrl: getAssetUrl("images/WIL00236.JPG"),
+      imageUrl: getAssetUrl("photos/WIL00236.JPG"),
     },
     {
       id: 3,
@@ -71,7 +71,7 @@ export const weddingData = {
       period: "Spring 2026",
       description:
         "Under a sky full of stars, Nandu asked, and Sravya happily said YES.",
-      imageUrl: getAssetUrl("images/WIL00310.JPG"),
+      imageUrl: getAssetUrl("photos/WIL00310.JPG"),
     },
     {
       id: 4,
@@ -79,7 +79,7 @@ export const weddingData = {
       title: "Forever Begins",
       period: "Winter 2026",
       description: "Ready to walk hand in hand as husband and wife.",
-      imageUrl: getAssetUrl("images/WIL00411.JPG"),
+      imageUrl: getAssetUrl("photos/WIL00411.JPG"),
     },
   ],
 
@@ -138,25 +138,25 @@ export const weddingData = {
       id: "g1",
       title: "Nandu & Sravya",
       category: "Pre-Wedding",
-      url: getAssetUrl("images/WIL00162.JPG"),
+      url: getAssetUrl("photos/WIL00162.JPG"),
     },
     {
       id: "g2",
       title: "Shared Smiles",
       category: "Moments",
-      url: getAssetUrl("images/WIL00236.JPG"),
+      url: getAssetUrl("photos/WIL00236.JPG"),
     },
     {
       id: "g3",
       title: "Golden Sunset",
       category: "Romance",
-      url: getAssetUrl("images/WIL00310.JPG"),
+      url: getAssetUrl("photos/WIL00310.JPG"),
     },
     {
       id: "g4",
       title: "Together Forever",
       category: "Celebration",
-      url: getAssetUrl("images/WIL00411.JPG"),
+      url: getAssetUrl("photos/WIL00411.JPG"),
     },
   ],
 
@@ -166,6 +166,6 @@ export const weddingData = {
 
   music: {
     trackTitle: "Howl's Moving Castle (OST Theme)",
-    src: getAssetUrl("music/wedding-song.mp3"),
+    src: getAssetUrl("music/bgm.mp3"),
   },
 };
