@@ -104,7 +104,6 @@ export default function OpeningHero({ onBeginStory, isTransitioned }) {
             style={{
               fontSize: 'clamp(2rem, 5vw, 3rem)',
               display: 'block',
-              filter: 'drop-shadow(0 2px 12px rgba(45, 212, 191, 0.3))',
             }}
           >
             {weddingData.couple.subtitle}
@@ -113,14 +112,13 @@ export default function OpeningHero({ onBeginStory, isTransitioned }) {
 
         <div ref={titleRef} style={{ width: '100%' }}>
           <h1 
-            className="font-hero gold-gradient-text"
+            className="font-hero gold-static-text"
             style={{
               fontSize: 'clamp(2.75rem, 8.5vw, 5.5rem)',
               fontWeight: '700',
               lineHeight: '1.1',
               letterSpacing: '0.04em',
               margin: '0.2rem 0',
-              filter: 'drop-shadow(0 4px 25px rgba(212, 175, 55, 0.4))',
             }}
           >
             {weddingData.couple.groom} & {weddingData.couple.bride}

@@ -119,14 +119,13 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
         {/* Couple Names Hero */}
         <div ref={titleRef} style={{ width: '100%' }}>
           <h1 
-            className="font-hero gold-gradient-text"
+            className="font-hero gold-static-text"
             style={{
               fontSize: 'clamp(2.5rem, 8vw, 5rem)',
               fontWeight: '700',
               lineHeight: '1.1',
               letterSpacing: '0.04em',
               margin: '0.2rem 0',
-              filter: 'drop-shadow(0 4px 20px rgba(212, 175, 55, 0.3))',
             }}
           >
             {weddingData.couple.groom} & {weddingData.couple.bride}

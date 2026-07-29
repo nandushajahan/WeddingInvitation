@@ -1,7 +1,9 @@
 @import './tokens.css';
 
 /* CSS Reset & Greener Shade Defaults */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -22,16 +24,14 @@ body {
   /* Light → dark → light vertical gradient that stretches the full page */
   background-color: var(--bg-sage-base);
   background-image:
-    linear-gradient(
-      to bottom,
-      var(--bg-sage-surface)  0%,
-      var(--bg-sage-base)     15%,
+    linear-gradient(to bottom,
+      var(--bg-sage-surface) 0%,
+      var(--bg-sage-base) 15%,
       var(--bg-sage-mid-dark) 40%,
-      var(--bg-sage-dark)     50%,
+      var(--bg-sage-dark) 50%,
       var(--bg-sage-mid-dark) 60%,
-      var(--bg-sage-base)     85%,
-      var(--bg-sage-surface) 100%
-    );
+      var(--bg-sage-base) 85%,
+      var(--bg-sage-surface) 100%);
   background-attachment: scroll;
   color: var(--text-dark-primary);
   overflow-x: hidden;
@@ -50,8 +50,7 @@ body::before {
       transparent 30%,
       rgba(132, 169, 140, 0.25) 50%,
       transparent 70%,
-      transparent 100%
-    );
+      transparent 100%);
 }
 
 /* Typography Classes */
@@ -72,32 +71,45 @@ body::before {
 }
 
 /* REFLECTIVE GLOSS SHIMMER TEXT EFFECT FOR BIG HEADINGS */
-.gold-gradient-text, .reflective-text {
-  background: linear-gradient(
-    110deg,
-    #967015 0%,
-    #D4AF37 25%,
-    #FFFFFF 45%,
-    #FFF0C2 50%,
-    #F5D68B 55%,
-    #B38A20 80%,
-    #967015 100%
-  );
+.gold-gradient-text,
+.reflective-text {
+  background: linear-gradient(110deg,
+      #967015 0%,
+      #D4AF37 25%,
+      #FFFFFF 45%,
+      #FFF0C2 50%,
+      #F5D68B 55%,
+      #B38A20 80%,
+      #967015 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: reflectiveShimmer 4.5s ease-in-out infinite;
-  filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.25));
+  animation: reflectiveShimmer 12s ease-in-out infinite;
+  /* No drop-shadow: glow is only for texts inside glass floaters */
 }
 
 @keyframes reflectiveShimmer {
   0% {
     background-position: 200% center;
   }
+
   100% {
     background-position: -200% center;
   }
+}
+
+/* Static gold gradient — same palette as reflective-text but NO animation */
+.gold-static-text {
+  background: linear-gradient(110deg,
+      #967015 0%,
+      #D4AF37 30%,
+      #F5D68B 50%,
+      #D4AF37 70%,
+      #967015 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* iOS 18 Liquid Glass Card Utility (Greener Sage Matched) */
@@ -107,7 +119,7 @@ body::before {
   backdrop-filter: blur(var(--glass-blur-heavy)) saturate(210%);
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 28px;
-  box-shadow: 
+  box-shadow:
     inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
     inset 0 -1px 2px 0 rgba(132, 169, 140, 0.15),
     0 20px 45px -10px rgba(13, 40, 24, 0.07);
@@ -116,7 +128,7 @@ body::before {
 
 .glass-card-minimal:hover {
   border-color: rgba(212, 175, 55, 0.45);
-  box-shadow: 
+  box-shadow:
     inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
     0 25px 50px -10px rgba(13, 40, 24, 0.12),
     0 0 20px rgba(212, 175, 55, 0.2);
@@ -161,7 +173,7 @@ body::before {
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  box-shadow: 
+  box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
     0 10px 25px rgba(212, 175, 55, 0.35);
   transition: all var(--transition-fast);
@@ -169,7 +181,7 @@ body::before {
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 
+  box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
     0 15px 35px rgba(212, 175, 55, 0.5);
 }
@@ -193,7 +205,7 @@ body::before {
   text-decoration: none;
   border: 1px solid rgba(132, 169, 140, 0.45);
   cursor: pointer;
-  box-shadow: 
+  box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
     0 8px 20px rgba(13, 40, 24, 0.04);
   transition: all var(--transition-fast);
@@ -206,7 +218,9 @@ body::before {
 }
 
 /* iOS 18 Input Elements */
-input, select, textarea {
+input,
+select,
+textarea {
   color: var(--text-dark-primary) !important;
   background: rgba(255, 255, 255, var(--glass-input-alpha)) !important;
   -webkit-backdrop-filter: blur(var(--glass-blur-light));
@@ -217,18 +231,24 @@ input, select, textarea {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   border-color: var(--gold-base) !important;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25) !important;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--text-muted) !important;
 }
 
 /* Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

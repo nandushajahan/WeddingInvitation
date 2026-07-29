@@ -107,7 +107,7 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
       tCtx.font = '900 48px "Plus Jakarta Sans", "Inter", sans-serif';
       tCtx.textAlign = 'center';
       tCtx.textBaseline = 'middle';
-      
+
       tCtx.fillStyle = '#2A1F0D';
       tCtx.fillText(nameText, 256, 64);
 
@@ -165,6 +165,7 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
       clearcoatRoughness: 0.04,
       reflectivity: 1.0,
     });
+
 
     const nanduBarMat = new THREE.MeshPhysicalMaterial({
       map: nanduTexture,
@@ -235,17 +236,17 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
       heartCanvas.height = 32;
       const hCtx = heartCanvas.getContext('2d');
       hCtx.clearRect(0, 0, 32, 32);
-      hCtx.fillStyle = '#FFFFFF';
+      hCtx.fillStyle = '#D4AF37';
 
       // Pixel art heart coordinate map (9 wide x 7 high)
       const pixelMap = [
-        [1,0],[2,0],       [6,0],[7,0],
-        [0,1],[1,1],[2,1],[3,1], [5,1],[6,1],[7,1],[8,1],
-        [0,2],[1,2],[2,2],[3,2],[4,2],[5,2],[6,2],[7,2],[8,2],
-        [1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[7,3],
-        [2,4],[3,4],[4,4],[5,4],[6,4],
-        [3,5],[4,5],[5,5],
-        [4,6]
+        [1, 0], [2, 0], [6, 0], [7, 0],
+        [0, 1], [1, 1], [2, 1], [3, 1], [5, 1], [6, 1], [7, 1], [8, 1],
+        [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2],
+        [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3],
+        [2, 4], [3, 4], [4, 4], [5, 4], [6, 4],
+        [3, 5], [4, 5], [5, 5],
+        [4, 6]
       ];
 
       const scale = 3;
@@ -373,7 +374,7 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
         if (flare1Ref.current && flare2Ref.current) {
           const flarePulse1 = Math.max(0, Math.sin(elapsedTime * 2.5 + ring1.rotation.y) * 0.95);
           const flarePulse2 = Math.max(0, Math.cos(elapsedTime * 2.8 + ring2.rotation.y) * 0.95);
-          
+
           flare1Ref.current.material.opacity = flarePulse1;
           flare2Ref.current.material.opacity = flarePulse2;
 
@@ -433,6 +434,7 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
 
       sravyaBarMat.envMapIntensity = THREE.MathUtils.lerp(4.0, 0.6, darkFactor);
       sravyaBarMat.clearcoat = THREE.MathUtils.lerp(0.8, 0.15, darkFactor);
+
 
       // Dim lens flares in dark zone (white additive glow looks wrong on dark bg)
       if (flare1Ref.current && flare2Ref.current) {
