@@ -120,7 +120,7 @@ export const weddingData = {
     },
     {
       id: "reception",
-      title: "Grand Reception",
+      title: "Reception",
       subTitle: "Celebration & Feast",
       date: "Monday, 14th September 2026",
       time: "11:00 AM Onwards",

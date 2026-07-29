@@ -347,6 +347,60 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
         particleSystemRef.current.geometry.attributes.position.needsUpdate = true;
       }
 
+      // ── SCROLL-DRIVEN LIGHTING ADAPTATION ──
+      // Smooth bell-curve "darkness factor": 0 in light zones, 1 at deepest dark (progress ≈ 0.5)
+      const darkCenter = 0.5;
+      const darkWidth = 0.18; // controls how wide the dark zone is
+      const rawDark = Math.exp(-Math.pow((progress - darkCenter) / darkWidth, 2));
+      const darkFactor = Math.max(0, Math.min(rawDark, 1));
+
+      // Ambient: warm cream in light → deep emerald-tinted in dark
+      const ambR = THREE.MathUtils.lerp(1.0, 0.15, darkFactor);
+      const ambG = THREE.MathUtils.lerp(0.97, 0.25, darkFactor);
+      const ambB = THREE.MathUtils.lerp(0.93, 0.18, darkFactor);
+      ambientLight.color.setRGB(ambR, ambG, ambB);
+      ambientLight.intensity = THREE.MathUtils.lerp(2.0, 0.6, darkFactor);
+
+      // Key light: bright warm → dimmer, more gold
+      keyLight.intensity = THREE.MathUtils.lerp(3.8, 2.0, darkFactor);
+
+      // Fill light: subtle gold → stronger to catch ring edges in dark
+      fillLight.intensity = THREE.MathUtils.lerp(1.5, 3.5, darkFactor);
+
+      // Rim light: moderately bright → intense halo for dark backgrounds
+      rimLight.intensity = THREE.MathUtils.lerp(2.8, 6.0, darkFactor);
+
+      // Tone mapping exposure: brighter rings pop more in dark
+      renderer.toneMappingExposure = THREE.MathUtils.lerp(1.4, 2.2, darkFactor);
+
+      // Particles: soft gold dust → bright glowing embers
+      particleMat.opacity = THREE.MathUtils.lerp(0.85, 1.0, darkFactor);
+      const pColorR = THREE.MathUtils.lerp(0.96, 1.0, darkFactor);   // #F5D68B → brighter
+      const pColorG = THREE.MathUtils.lerp(0.84, 0.88, darkFactor);
+      const pColorB = THREE.MathUtils.lerp(0.55, 0.35, darkFactor);  // warmer / more saturated
+      particleMat.color.setRGB(pColorR, pColorG, pColorB);
+      particleMat.size = THREE.MathUtils.lerp(0.1, 0.16, darkFactor);
+
+      // ── MATERIAL ADAPTATION: kill white env reflections in dark zone ──
+      // Reduce envMap intensity so rings reflect less of the white environment map
+      polishedGoldMat.envMapIntensity = THREE.MathUtils.lerp(4.5, 0.8, darkFactor);
+      polishedGoldMat.clearcoat = THREE.MathUtils.lerp(1.0, 0.2, darkFactor);
+      polishedGoldMat.clearcoatRoughness = THREE.MathUtils.lerp(0.04, 0.4, darkFactor);
+      polishedGoldMat.roughness = THREE.MathUtils.lerp(0.08, 0.22, darkFactor);
+
+      nanduBarMat.envMapIntensity = THREE.MathUtils.lerp(4.0, 0.6, darkFactor);
+      nanduBarMat.clearcoat = THREE.MathUtils.lerp(0.8, 0.15, darkFactor);
+
+      sravyaBarMat.envMapIntensity = THREE.MathUtils.lerp(4.0, 0.6, darkFactor);
+      sravyaBarMat.clearcoat = THREE.MathUtils.lerp(0.8, 0.15, darkFactor);
+
+      // Dim lens flares in dark zone (white additive glow looks wrong on dark bg)
+      if (flare1Ref.current && flare2Ref.current) {
+        const flareScale = THREE.MathUtils.lerp(1.0, 0.25, darkFactor);
+        flare1Ref.current.material.opacity *= flareScale;
+        flare2Ref.current.material.opacity *= flareScale;
+      }
+
       renderer.render(scene, camera);
     };
 

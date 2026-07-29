@@ -106,7 +106,7 @@ export default function EventDetails() {
                   border: '1px solid var(--overlay-gold-border)',
                   borderRadius: 'var(--radius-full)',
                   background: 'rgba(255, 255, 255, 0.06)',
-                  backdropFilter: 'blur(10px)',
+                  backdropFilter: 'blur(var(--glass-blur-minimal))',
                   transition: 'all 0.3s ease',
                   textDecoration: 'none',
                 }}

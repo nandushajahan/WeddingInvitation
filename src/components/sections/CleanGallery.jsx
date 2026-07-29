@@ -23,7 +23,7 @@ export default function CleanGallery() {
           Captured Moments
         </span>
         <h2 className="font-hero reflective-text" style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
-          Our Floating Gallery
+          Our Gallery
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.4rem', letterSpacing: '0.05em' }}>
           Hover or tap to tilt the vignette floating photos

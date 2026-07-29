@@ -1,13 +1,17 @@
 :root {
-  /* Color Palette - Greener Shade Botanical Sage & Emerald Theme */
-  --bg-sage-base: #F3F7F4;
-  --bg-sage-depth: #E5EDE7;
-  --bg-sage-surface: #FFFFFF;
-  --bg-sage-elevated: #D6E3DA;
+  /* Color Palette - Vibrant Botanical Sage & Emerald Theme */
+  --bg-sage-base: #E0F0E3;
+  --bg-sage-depth: #b8ca93;
+  --bg-sage-surface: #EEF8F0;
+  --bg-sage-elevated: #e1e4e2;
+  --bg-sage-dark: #d5dcd1;
+  /* dark anchor for top & bottom vignette */
+  --bg-sage-mid-dark: #c8cbac;
+  /* transition ring */
 
   --text-dark-primary: #0D2818;
   --text-dark-secondary: #1F4B2E;
-  --text-muted: #52796F;
+  --text-muted: #72a781;
 
   --gold-bright: #F5D68B;
   --gold-base: #D4AF37;
@@ -15,8 +19,39 @@
   --emerald-accent: #2A5C39;
 
   --glow-gold-sunbeam: rgba(212, 175, 55, 0.25);
-  --overlay-glass-card: rgba(243, 247, 244, 0.78);
   --overlay-gold-border: rgba(132, 169, 140, 0.35);
+
+  /* ── Transparency Tokens ── */
+  /* Tweak these to control glass / modal see-through globally */
+  --glass-card-alpha: 0.10;
+  /* sage glass panels (.glass-card-minimal) */
+  --glass-btn-outline-alpha: 0.10;
+  /* outline pill buttons */
+  --glass-btn-outline-hover-alpha: 0.10;
+  --glass-input-alpha: 0.10;
+  /* input / textarea / select */
+  --glass-audio-toggle-alpha: 0.10;
+  /* floating audio button */
+  --modal-overlay-alpha: 0.10;
+  /* lightbox / full-screen modal backdrop */
+  --badge-dark-alpha: 0.10;
+  /* dark floating tags / badges */
+  --badge-dark-alt-alpha: 0.10;
+  /* gallery expand badge */
+
+  /* ── Blur Tokens ── */
+  --glass-blur-heavy: 32px;
+  /* glass cards */
+  --glass-blur-medium: 20px;
+  /* modals, outline buttons */
+  --glass-blur-light: 16px;
+  /* buttons, inputs, audio toggle */
+  --glass-blur-subtle: 12px;
+  /* small floating tags */
+  --glass-blur-minimal: 10px;
+  /* map links, small pills */
+  --glass-blur-xs: 8px;
+  /* icon badges */
 
   /* Typography */
   --font-hero: 'Cinzel Decorative', 'Cormorant Garamond', serif;
