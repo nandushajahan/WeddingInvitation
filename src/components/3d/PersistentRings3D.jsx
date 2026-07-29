@@ -228,25 +228,70 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
     scene.add(ring2Group);
     ring2Ref.current = ring2Group;
 
-    // 10. 3D STARDUST PARTICLES
-    const particleCount = isMobile ? 180 : 320;
+    // 9.5 PIXELATED HEART TEXTURE FOR FLOATING PARTICLES
+    const createPixelHeartTexture = () => {
+      const heartCanvas = document.createElement('canvas');
+      heartCanvas.width = 32;
+      heartCanvas.height = 32;
+      const hCtx = heartCanvas.getContext('2d');
+      hCtx.clearRect(0, 0, 32, 32);
+      hCtx.fillStyle = '#FFFFFF';
+
+      // Pixel art heart coordinate map (9 wide x 7 high)
+      const pixelMap = [
+        [1,0],[2,0],       [6,0],[7,0],
+        [0,1],[1,1],[2,1],[3,1], [5,1],[6,1],[7,1],[8,1],
+        [0,2],[1,2],[2,2],[3,2],[4,2],[5,2],[6,2],[7,2],[8,2],
+        [1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[7,3],
+        [2,4],[3,4],[4,4],[5,4],[6,4],
+        [3,5],[4,5],[5,5],
+        [4,6]
+      ];
+
+      const scale = 3;
+      const offsetX = 1.1;
+      const offsetY = 2;
+
+      pixelMap.forEach(([px, py]) => {
+        hCtx.fillRect(Math.floor((px + offsetX) * scale), Math.floor((py + offsetY) * scale), scale, scale);
+      });
+
+      const texture = new THREE.CanvasTexture(heartCanvas);
+      texture.magFilter = THREE.NearestFilter;
+      texture.minFilter = THREE.NearestFilter;
+      return texture;
+    };
+
+    const heartTexture = createPixelHeartTexture();
+
+    // 10. 3D STARDUST HEART PARTICLES (With random per-heart opacities)
+    const particleCount = isMobile ? 60 : 105;
     const particleGeo = new THREE.BufferGeometry();
     const particlePos = new Float32Array(particleCount * 3);
+    const particleColors = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount; i++) {
       particlePos[i * 3] = (Math.random() - 0.5) * 14;
       particlePos[i * 3 + 1] = (Math.random() - 0.5) * 14;
       particlePos[i * 3 + 2] = (Math.random() - 0.5) * 10;
+
+      // Random opacity for each heart (ranging from soft 0.25 to bright 0.95)
+      const randomOpacity = 0.25 + Math.random() * 0.70;
+      particleColors[i * 3] = randomOpacity;
+      particleColors[i * 3 + 1] = randomOpacity;
+      particleColors[i * 3 + 2] = randomOpacity;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
+    particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
 
     const particleMat = new THREE.PointsMaterial({
-      color: 0xf5d68b,
-      size: 0.1,
+      map: heartTexture,
+      vertexColors: true,
+      size: isMobile ? 0.35 : 0.45,
       transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
+      opacity: 1.0,
+      depthWrite: false,
     });
 
     const particleSystem = new THREE.Points(particleGeo, particleMat);
@@ -337,12 +382,12 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
         }
       }
 
-      // Orbit Stardust Particles
+      // Orbit Stardust Particles (Slow, dreamy floating motion)
       if (particleSystemRef.current) {
         const pPositions = particleSystemRef.current.geometry.attributes.position.array;
         for (let i = 0; i < particleCount; i++) {
-          pPositions[i * 3 + 1] += Math.sin(elapsedTime + i) * 0.003;
-          pPositions[i * 3] += Math.cos(elapsedTime + i) * 0.002;
+          pPositions[i * 3 + 1] += Math.sin(elapsedTime * 0.4 + i) * 0.0008;
+          pPositions[i * 3] += Math.cos(elapsedTime * 0.4 + i) * 0.0005;
         }
         particleSystemRef.current.geometry.attributes.position.needsUpdate = true;
       }
@@ -373,13 +418,8 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
       // Tone mapping exposure: brighter rings pop more in dark
       renderer.toneMappingExposure = THREE.MathUtils.lerp(1.4, 2.2, darkFactor);
 
-      // Particles: soft gold dust → bright glowing embers
-      particleMat.opacity = THREE.MathUtils.lerp(0.85, 1.0, darkFactor);
-      const pColorR = THREE.MathUtils.lerp(0.96, 1.0, darkFactor);   // #F5D68B → brighter
-      const pColorG = THREE.MathUtils.lerp(0.84, 0.88, darkFactor);
-      const pColorB = THREE.MathUtils.lerp(0.55, 0.35, darkFactor);  // warmer / more saturated
-      particleMat.color.setRGB(pColorR, pColorG, pColorB);
-      particleMat.size = THREE.MathUtils.lerp(0.1, 0.16, darkFactor);
+      // Heart Particles: per-particle vertex opacities preserved
+      particleMat.opacity = 1.0;
 
       // ── MATERIAL ADAPTATION: kill white env reflections in dark zone ──
       // Reduce envMap intensity so rings reflect less of the white environment map
@@ -427,6 +467,7 @@ export default function PersistentRings3D({ scrollProgress = 0 }) {
       cancelAnimationFrame(animationFrameId);
       pmremGenerator.dispose();
       envTexture.dispose();
+      heartTexture.dispose();
       nanduTexture.dispose();
       sravyaTexture.dispose();
       flareTexture.dispose();

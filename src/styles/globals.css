@@ -48,7 +48,7 @@ body::before {
     linear-gradient(to bottom,
       transparent 0%,
       transparent 30%,
-      rgba(27, 58, 40, 0.25) 50%,
+      rgba(132, 169, 140, 0.25) 50%,
       transparent 70%,
       transparent 100%
     );
