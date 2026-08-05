@@ -54,7 +54,7 @@ export default function App() {
         {/* Floating iOS 18 Glass Photo Gallery (Featuring User's 4 Photos) */}
         <CleanGallery />
 
-        {/* Live Countdown & Minimal RSVP Form */}
+        {/* Live Countdown */}
         <CleanCountdownRSVP />
       </main>
     </div>
