@@ -23,30 +23,30 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
         { scale: 0.7, opacity: 0, y: -40 },
         { scale: 1, opacity: 1, y: 0, duration: 1.6 }
       )
-      .fromTo(
-        subtitleRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0 },
-        '-=1.0'
-      )
-      .fromTo(
-        titleRef.current,
-        { opacity: 0, scale: 0.92, y: 30 },
-        { opacity: 1, scale: 1, y: 0, duration: 1.4 },
-        '-=0.8'
-      )
-      .fromTo(
-        infoRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0 },
-        '-=0.8'
-      )
-      .fromTo(
-        ctaRef.current,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0 },
-        '-=0.6'
-      );
+        .fromTo(
+          subtitleRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0 },
+          '-=1.0'
+        )
+        .fromTo(
+          titleRef.current,
+          { opacity: 0, scale: 0.92, y: 30 },
+          { opacity: 1, scale: 1, y: 0, duration: 1.4 },
+          '-=0.8'
+        )
+        .fromTo(
+          infoRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0 },
+          '-=0.8'
+        )
+        .fromTo(
+          ctaRef.current,
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0 },
+          '-=0.6'
+        );
     }, containerRef);
 
     return () => ctx.revert();
@@ -85,7 +85,7 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
         background: 'transparent',
       }}
     >
-      <div 
+      <div
         style={{
           maxWidth: '680px',
           width: '100%',
@@ -103,13 +103,13 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
 
         {/* Tagline / Subtitle */}
         <div ref={subtitleRef}>
-          <span 
+          <span
             className="font-script"
             style={{
               fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-              color: 'var(--kasavu-gold-bright)',
+              color: 'var(--text-dark-primary)',
               display: 'block',
-              textShadow: '0 2px 10px rgba(245, 214, 139, 0.3)',
+              textShadow: '0 1px 3px rgba(255, 255, 255, 0.6), 0 2px 10px rgba(83, 52, 16, 0.25)',
             }}
           >
             {weddingData.couple.subtitle}
@@ -118,7 +118,7 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
 
         {/* Couple Names Hero */}
         <div ref={titleRef} style={{ width: '100%' }}>
-          <h1 
+          <h1
             className="font-hero gold-static-text"
             style={{
               fontSize: 'clamp(2.5rem, 8vw, 5rem)',
@@ -139,7 +139,7 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
 
         {/* Date and Location */}
         <div ref={infoRef} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-          <p 
+          <p
             className="font-serif"
             style={{
               fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
@@ -150,7 +150,7 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
           >
             {weddingData.eventDate.displayDate}
           </p>
-          <p 
+          <p
             style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '0.875rem',
@@ -173,7 +173,7 @@ export default function OpeningScene({ onBeginStory, isTransitioned }) {
             <Sparkles size={18} style={{ color: 'var(--bg-midnight-base)' }} />
             <span>{weddingData.openingScene.ctaText}</span>
           </button>
-          
+
           <div style={{ marginTop: '1rem', opacity: 0.6, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.3rem' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-ivory-muted)', letterSpacing: '0.1em' }}>TAP TO UNFOLD</span>
             <ChevronDown size={14} style={{ color: 'var(--kasavu-gold-bright)', animation: 'bounce 2s infinite' }} />

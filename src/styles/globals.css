@@ -70,23 +70,22 @@ body::before {
   font-family: var(--font-script);
 }
 
-/* REFLECTIVE GLOSS SHIMMER TEXT EFFECT FOR BIG HEADINGS */
+/* REFLECTIVE EMERALD GLOSS SHIMMER TEXT EFFECT FOR BIG HEADINGS */
 .gold-gradient-text,
 .reflective-text {
   background: linear-gradient(110deg,
-      #967015 0%,
-      #D4AF37 25%,
-      #FFFFFF 45%,
-      #FFF0C2 50%,
-      #F5D68B 55%,
-      #B38A20 80%,
-      #967015 100%);
+      #0D2818 0%,
+      #1F4B2E 25%,
+      #2A5C39 40%,
+      #528A62 50%,
+      #1F4B2E 75%,
+      #0D2818 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: reflectiveShimmer 12s ease-in-out infinite;
-  /* No drop-shadow: glow is only for texts inside glass floaters */
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.4));
 }
 
 @keyframes reflectiveShimmer {
@@ -99,17 +98,18 @@ body::before {
   }
 }
 
-/* Static gold gradient — same palette as reflective-text but NO animation */
+/* Static emerald gradient — same rich deep green palette */
 .gold-static-text {
   background: linear-gradient(110deg,
-      #967015 0%,
-      #D4AF37 30%,
-      #F5D68B 50%,
-      #D4AF37 70%,
-      #967015 100%);
+      #0D2818 0%,
+      #1E4D2B 30%,
+      #2A5C39 50%,
+      #1E4D2B 70%,
+      #0D2818 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.4));
 }
 
 /* iOS 18 Liquid Glass Card Utility (Greener Sage Matched) */
