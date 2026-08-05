@@ -21,7 +21,7 @@ export const weddingData = {
   openingScene: {
     tagline: "Two Hearts, One Journey",
     ctaText: "Explore Our Story",
-    locationTeaser: "Mayannur & Ayyampilly • Kerala",
+    locationTeaser: "Mayannur & Ayyambilly • Kerala",
   },
 
   pinnedJourney: {
@@ -84,11 +84,11 @@ export const weddingData = {
   ],
 
   venue: {
-    name: "Mayannur Sree Kurumba Temple",
+    name: "Mayannur Sree Kurumba Bhagavathi Temple",
     hall: "Temple Premises",
     city: "Mayannur, Thrissur, Kerala",
     address: "Mayannur, Thrissur, Kerala 679105",
-    googleMapsUrl: "https://maps.app.goo.gl/bBAuvWbiqeCWZaTeA",
+    googleMapsUrl: "https://maps.app.goo.gl/iQetdz8AZEJioAr47",
   },
 
   eventsList: [
@@ -98,17 +98,17 @@ export const weddingData = {
       subTitle: "Sacred Temple Muhurtham",
       date: "Sunday, 13th September 2026",
       time: "10:00 AM – 10:30 AM",
-      venueName: "Mayannur Sree Kurumba Temple",
+      venueName: "Mayannur Sree Kurumba Bhagavathi Temple",
       location: "Mayannur, Thrissur, Kerala",
-      googleMapsUrl: "https://maps.app.goo.gl/bBAuvWbiqeCWZaTeA",
+      googleMapsUrl: "https://maps.app.goo.gl/iQetdz8AZEJioAr47",
       dressCode: "Traditional Kasavu Attire",
       description:
-        "The auspicious Thaali Kettu ceremony at Mayannur Sree Kurumba Temple.",
+        "The auspicious Thaali Kettu ceremony at Mayannur Sree Kurumba Bhagavathi Temple.",
     },
     {
       id: "weddingFeast",
       title: "Wedding Ceremony & Feast",
-      subTitle: "Post-Thaali Celebration",
+      subTitle: "Post-Thaali Kettu Celebration",
       date: "Sunday, 13th September 2026",
       time: "11:00 AM Onwards (After Thaali Kettu)",
       venueName: "Vrinda's Auditorium",
@@ -124,9 +124,9 @@ export const weddingData = {
       subTitle: "Celebration & Feast",
       date: "Monday, 14th September 2026",
       time: "11:00 AM Onwards",
-      venueName: "Ayyampilly Celebration Hall",
+      venueName: "Sahakarana Nilayam Ayyambilly",
       location: "Ayyampilly, Vypin, Kochi, Kerala",
-      googleMapsUrl: "https://maps.google.com/?q=Ayyampilly+Kerala",
+      googleMapsUrl: "https://maps.app.goo.gl/BnYEVWQUY5FHyXM26",
       dressCode: "Festive Formal",
       description:
         "A joyful reception celebration with family and friends at Ayyampilly.",

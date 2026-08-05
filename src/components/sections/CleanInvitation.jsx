@@ -130,7 +130,7 @@ export default function CleanInvitation() {
             </p>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-dark-secondary)', marginTop: '0.25rem', fontWeight: 600 }}>
               <MapPin size={12} style={{ display: 'inline', marginRight: '4px', color: 'var(--gold-deep)' }} />
-              Ayyampilly, Vypin
+              Sahakarana Nilayam, Ayyampilly, Vypin
             </p>
           </div>
         </div>
