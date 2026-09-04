@@ -8,7 +8,7 @@ import React, { useRef, useState } from 'react';
  * - Smooth radial feather vignette mask fading seamlessly into the background
  * - 3D Gyro/Mouse tilt interaction
  */
-export default function GlassPhotoFloater({ imageSrc, className = '', style = {} }) {
+export default function GlassPhotoFloater({ imageSrc, className = '', style = {}, onClick, overlayText, blurImage }) {
   const cardRef = useRef(null);
   const [transformStyle, setTransformStyle] = useState('perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)');
 
@@ -38,16 +38,18 @@ export default function GlassPhotoFloater({ imageSrc, className = '', style = {}
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       className={`photo-vignette-floater ${className}`}
       style={{
         transform: transformStyle,
         transformStyle: 'preserve-3d',
         transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
         cursor: 'pointer',
+        position: 'relative',
         ...style,
       }}
     >
-      {/* PURE PHOTO - NO CAPTIONS */}
+      {/* PURE PHOTO - NO CAPTIONS (Unless overlayText is provided) */}
       <img
         src={imageSrc}
         alt="Nandu & Sravya Photo"
@@ -57,8 +59,32 @@ export default function GlassPhotoFloater({ imageSrc, className = '', style = {}
           objectFit: 'cover',
           display: 'block',
           transition: 'transform 0.5s ease',
+          filter: blurImage ? 'blur(4px) brightness(0.6)' : 'none',
         }}
       />
+      {overlayText && (
+        <div
+          className="font-script"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#ffffff',
+            fontSize: '1.75rem',
+            fontWeight: '400',
+            textShadow: '0 4px 15px rgba(0,0,0,0.8)',
+            zIndex: 10,
+            pointerEvents: 'none', // let clicks pass through to the parent
+          }}
+        >
+          {overlayText}
+        </div>
+      )}
     </div>
   );
 }

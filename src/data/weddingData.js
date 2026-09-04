@@ -158,6 +158,19 @@ export const weddingData = {
       category: "Celebration",
       url: getAssetUrl("photos/WIL00411.JPG"),
     },
+    {
+      id: "g5",
+      title: "New Journey",
+      category: "Moments",
+      url: getAssetUrl("photos/newimage.jpeg"),
+    },
+    {
+      id: "g6",
+      title: "View More",
+      category: "Gallery Action",
+      url: getAssetUrl("photos/btnImage.jpeg"),
+      isViewMoreBtn: true,
+    },
   ],
 
   rsvp: {
